@@ -1,0 +1,227 @@
+:root {
+    --bg: #0f1222;
+    --card: #171a2b;
+    --text: #e7eaf6;
+    --muted: #9aa3b2;
+    --accent: #6d8bff;
+    --accent-2: #22d3ee;
+    --danger: #ef4444;
+    --success: #10b981;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(1200px 800px at 20% -10%, #1b1f39, transparent), var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif
+}
+
+.container {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.topbar h1 {
+    font-size: 24px;
+    margin: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent
+}
+
+.topbar-right {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.progress {
+    width: 220px;
+    height: 10px;
+    background: #2a2f47;
+    border-radius: 999px;
+    overflow: hidden
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width .3s
+}
+
+.timer {
+    background: #22274a;
+    border: 1px solid #2f3561;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-variant-numeric: tabular-nums
+}
+
+.card {
+    background: linear-gradient(180deg, #171a2b, #14172a);
+    border: 1px solid #232744;
+    border-radius: 16px;
+    padding: 20px 20px 24px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35)
+}
+
+.hidden {
+    display: none
+}
+
+.setup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 10px
+}
+
+#setup h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+label {
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 14px
+}
+
+select,
+input {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid #2a2f47;
+    background: #121429;
+    color: var(--text);
+    outline: none
+}
+
+.btn {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #2a2f47;
+    background: #202544;
+    color: var(--text);
+    cursor: pointer
+}
+
+.btn[disabled] {
+    opacity: .5;
+    cursor: not-allowed
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    border: none;
+    color: #0a102a
+}
+
+.meta {
+    display: flex;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 10px
+}
+
+#question {
+    margin: 8px 0 16px;
+    font-size: 22px
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px
+}
+
+.answer {
+    padding: 14px;
+    border: 1px solid #2a2f47;
+    background: #131734;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform .05s ease, border-color .2s
+}
+
+.answer:hover {
+    transform: translateY(-1px);
+    border-color: #3a4070
+}
+
+.answer.correct {
+    border-color: rgba(16, 185, 129, .6);
+    background: linear-gradient(180deg, #132a22, #111631)
+}
+
+.answer.wrong {
+    border-color: rgba(239, 68, 68, .6);
+    background: linear-gradient(180deg, #2a1313, #111631)
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0;
+    list-style: none
+}
+
+.summary li {
+    background: #12152b;
+    border: 1px solid #2a2f47;
+    border-radius: 10px;
+    padding: 10px
+}
+
+.footer {
+    color: var(--muted);
+    text-align: center;
+    margin-top: 16px;
+    font-size: 12px
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin: 6px auto;
+    border: 3px solid #2f3561;
+    border-top-color: var(--accent);
+    animation: spin 1s linear infinite
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}

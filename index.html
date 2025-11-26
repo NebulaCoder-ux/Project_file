@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div id="setup" class="card">
+        <h2>Trivia</h2>
+
+        <form id="setup-form">
+            <div class="setup-grid">
+
+                <label>
+                    Category
+                    <select id="category"></select>
+                </label>
+
+                <label>
+                    Difficulty
+                    <select id="difficulty">
+                        <option value="">Any</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </label>
+
+                <label>
+                    Number of Questions
+                    <input type="number" id="amount" min="5" max="20" value="10">
+                </label>
+
+            </div>
+            <br>
+            <button class="btn primary" type="submit">Start Quiz</button>
+        </form>
+    </div>
+
+    
+    <div id="loader" class="hidden">
+        <div class="spinner"></div>
+    </div>
+
+   
+    <div id="quiz" class="card hidden">
+        <div class="topbar">
+            <h1>Quiz</h1>
+            <div class="topbar-right">
+                <div class="timer" id="timer">--</div>
+            </div>
+        </div>
+
+        <div class="meta">
+            <span id="meta-category"></span> |
+            <span id="meta-difficulty"></span> |
+            <span id="meta-index"></span>
+        </div>
+
+        <div id="question"></div>
+
+        <div id="answers" class="answers"></div>
+
+        <div class="actions">
+            <button id="next" class="btn primary" disabled>Next</button>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+
+    
+    <div id="result" class="card hidden">
+        <h2>Quiz Finished</h2>
+        <p id="score-line"></p>
+        <ul id="summary" class="summary"></ul>
+        <button id="restart" class="btn primary">Restart</button>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
